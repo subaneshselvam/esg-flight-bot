@@ -10,8 +10,7 @@ app = Flask(__name__)
 
 # Helper function to parse company lists and create dictionary entries
 def create_company_entry(name, symbol, sector):
-    return name.lower(): {'symbol': symbol, 'sector': sector, 'name': name}
-
+   return name.lower(): {'symbol': symbol, 'sector': sector, 'name': name}
 COMPANY_DATABASE = {}
 
 # --- India (65 Companies + Zoho) ---
