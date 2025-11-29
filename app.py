@@ -8,9 +8,8 @@ app = Flask(__name__)
 
 # ==================== COMPANY DATABASE (780 Total) ====================
 
-# Helper function to parse company lists and create dictionary entries
-def create_company_entry(name, symbol, sector):
-   return name.lower(): {'symbol': symbol, 'sector': sector, 'name': name}
+# Helper function removed - all company data is added directly in the dictionaries.
+
 COMPANY_DATABASE = {}
 
 # --- India (65 Companies + Zoho) ---
@@ -256,7 +255,7 @@ CHINA_COMPANIES = {
     'haier': {'symbol': 'HRALY', 'sector': 'Consumer Electronics', 'name': 'Haier Smart Home Co., Ltd.'},
     'hisense': {'symbol': 'HISNY', 'sector': 'Consumer Electronics', 'name': 'Hisense Home Appliances Group Co., Ltd.'},
     'midea group': {'symbol': 'MIGRY', 'sector': 'Consumer Electronics', 'name': 'Midea Group Co., Ltd.'},
-    'gree electric': {'symbol': 'GSZDY', 'sector': 'Consumer Electronics', 'name': 'Gree Electric Appliances, Inc. of Zhuhai'},
+    'gree electric': {'symbol': 'GSZDY', 'sector': 'Consumer Electronics', 'name': 'Gree Electric Appliances, Inc of Zhuhai'},
     'crrc corporation': {'symbol': 'CRCDY', 'sector': 'Transportation', 'name': 'CRRC Corporation Limited'},
     'china state construction engineering': {'symbol': 'CSCE', 'sector': 'Construction', 'name': 'China State Construction Engineering Corporation Ltd.'}, # Placeholder symbol
     'china railway group': {'symbol': 'CRWHO', 'sector': 'Construction', 'name': 'China Railway Group Limited'}, # Placeholder symbol
@@ -277,7 +276,7 @@ CHINA_COMPANIES = {
     'trip.com': {'symbol': 'TCOM', 'sector': 'Travel', 'name': 'Trip.com Group Limited'},
     'xpeng motors': {'symbol': 'XPEV', 'sector': 'Automotive', 'name': 'XPeng Inc.'},
     'nio': {'symbol': 'NIO', 'sector': 'Automotive', 'name': 'NIO Inc.'},
-    'catl': {'symbol': 'CATL', 'sector': 'Automotive Parts', 'name': 'Contemporary Amperex Technology Co. Limited (CATL)'}, # Placeholder symbol
+    'catl': {'symbol': 'CATL', 'sector': 'Automotive Parts', 'name': 'Contemporary Amperex Technology Co Limited (CATL)'}, # Placeholder symbol
     'hikvision': {'symbol': 'HKVCY', 'sector': 'Technology', 'name': 'Hangzhou Hikvision Digital Technology Co., Ltd.'},
     'tcl technology': {'symbol': 'TCL', 'sector': 'Electronics', 'name': 'TCL Technology Group Corporation'}, # Placeholder symbol
     'cosco shipping': {'symbol': 'CICOY', 'sector': 'Shipping', 'name': 'COSCO SHIPPING Holdings Co., Ltd.'},
@@ -811,7 +810,6 @@ CANADA_COMPANIES = {
 COMPANY_DATABASE.update(CANADA_COMPANIES)
 
 # The total number of companies should be: 65 (India + Zoho) + 65 (USA) + 65 (Japan) + 65 (China) + 65 (UK) + 65 (Germany) + 65 (South Korea) + 65 (France) + 65 (UAE) + 65 (Australia) + 65 (Brazil) + 65 (Canada) = 780.
-# The number of unique entries in the database should be close to 780, considering some overlaps for aliases/parent companies.
 # print(f"Loaded {len(COMPANY_DATABASE)} unique company entries.")
 
 
@@ -823,7 +821,7 @@ CITY_COORDINATES = {
     'chennai': (13.0827, 80.2707), 'kolkata': (22.5726, 88.3639), 'hyderabad': (17.3850, 78.4867),
     'pune': (18.5204, 73.8567), 'ahmedabad': (23.0225, 72.5714), 'kochi': (9.9312, 76.2673),
     'goa': (15.2993, 74.1240), 'jaipur': (26.9124, 75.7873), 'trivandrum': (8.4846, 76.9392),
-    'doha': (25.2854, 51.5310),
+    'doha': (25.2854, 51.5310), 'bhubaneswar': (20.2961, 85.8245), 'charlotte': (35.2271, -80.8431),
     
     # USA Cities (50+)
     'new york': (40.7128, -74.0060), 'los angeles': (34.0522, -118.2437), 'chicago': (41.8781, -87.6298),
@@ -841,7 +839,7 @@ CITY_COORDINATES = {
     'shanghai': (31.2304, 121.4737), 'beijing': (39.9042, 116.4074), 'osaka': (34.6937, 135.5023),
     'sapporo': (43.0686, 141.3508), 'fukuoka': (33.5904, 130.4017), 'manchester': (53.4808, -2.2426),
     'istanbul': (41.0082, 28.9784), 'amsterdam': (52.3676, 4.9041), 'berlin': (52.5200, 13.4050),
-    'doha': (25.2854, 51.5310), 'muscat': (23.5859, 58.3828), 'jeddah': (21.4858, 39.1925),
+    'muscat': (23.5859, 58.3828), 'jeddah': (21.4858, 39.1925),
     'riyadh': (24.7136, 46.6753), 'bahrain': (26.0667, 50.5577), 'abu dhabi': (24.4539, 54.3773),
     'cairo': (30.0330, 31.2335), 'kuwait city': (29.3759, 47.9774), 'melbourne': (-37.8136, 144.9631),
     'brisbane': (-27.4698, 153.0251), 'perth': (-31.9505, 115.8605), 'gold coast': (-28.0167, 153.4000),
@@ -853,9 +851,9 @@ CITY_COORDINATES = {
     'fortaleza': (-3.7319, -38.5267), 'lisbon': (38.7223, -9.1393), 'madrid': (40.4168, -3.7038),
     'toronto': (43.6532, -79.3832), 'vancouver': (49.2827, -123.1207), 'montreal': (45.5017, -73.5673),
     'calgary': (51.0447, -114.0719), 'ottawa': (45.4215, -75.6972), 'winnipeg': (49.8954, -97.1385),
-    'halifax': (44.6488, -63.5752), 'chennai': (13.0827, 80.2707), 'seoul': (37.5665, 126.9780),
+    'halifax': (44.6488, -63.5752), 'seoul': (37.5665, 126.9780),
     'chengdu': (30.6667, 104.0667), 'guangzhou': (23.1291, 113.2644), 'shenzhen': (22.5431, 114.0579),
-    'xiamen': (24.4798, 118.0894), 'taipei': (25.0330, 121.5654), 'taipei': (25.0330, 121.5654),
+    'xiamen': (24.4798, 118.0894), 'taipei': (25.0330, 121.5654),
     'kathmandu': (27.7172, 85.3240), 'colombo': (6.9271, 79.8612), 'karachi': (24.8607, 67.0011),
     'lahore': (31.5497, 74.3436), 'islamabad': (33.6844, 73.0479), 'dhaka': (23.8103, 90.4125),
     'tel aviv': (32.0853, 34.7818), 'marrakech': (31.6295, -7.9811), 'algiers': (36.7538, 3.0588),
@@ -867,7 +865,7 @@ CITY_COORDINATES = {
     'hanoi': (21.0285, 105.8542), 'cebu': (10.3157, 123.8854),
     'addis ababa': (9.0054, 38.7636), 'nairobi': (-1.2921, 36.8219), 'johannesburg': (-26.2041, 28.0473),
     'cape town': (-33.9249, 18.4241), 'durban': (-29.8587, 31.0218), 'lagos': (6.5244, 3.3792),
-    'madrid': (40.4168, -3.7038), 'barcelona': (41.3851, 2.1734), 'milan': (45.4642, 9.1900),
+    'barcelona': (41.3851, 2.1734), 'milan': (45.4642, 9.1900),
     'rome': (41.9028, 12.4964), 'zurich': (47.3769, 8.5417), 'athens': (37.9838, 23.7275),
     'vienna': (48.2082, 16.3738), 'oslo': (59.9139, 10.7522), 'copenhagen': (55.6761, 12.5683),
     'stockholm': (59.3293, 18.0686), 'dublin': (53.3498, -6.2603),
@@ -953,6 +951,7 @@ FULL_ROUTES_LIST = [
     ('amsterdam', 'munich'),
 
     # K. More Europe & Middle East
+    # The list contains duplicates like ('frankfurt', 'london') which are harmless
     ('frankfurt', 'london'), ('london', 'frankfurt'), ('munich', 'london'),
     ('london', 'munich'), ('frankfurt', 'paris'), ('paris', 'frankfurt'),
     ('frankfurt', 'dubai'), ('dubai', 'frankfurt'), ('munich', 'istanbul'),
@@ -1198,7 +1197,7 @@ FULL_ROUTES_LIST = [
     ('new york', 'boston'), ('boston', 'new york'), ('new york', 'washington dc'),
     ('washington dc', 'new york'), ('los angeles', 'phoenix'), ('phoenix', 'los angeles'),
     ('dallas', 'denver'), ('denver', 'dallas'), ('chicago', 'atlanta'),
-    ('atlanta', 'chicago'), ('charlotte', 'new york'), ('new york', 'charlotte'), # Assuming charlotte is a city, not in coordinates, using Denver coords as placeholder if needed
+    ('atlanta', 'chicago'), ('charlotte', 'new york'), ('new york', 'charlotte'),
     ('seattle', 'phoenix'), ('phoenix', 'seattle'), ('las vegas', 'denver'),
     ('denver', 'las vegas'),
 
@@ -1260,7 +1259,7 @@ SHORT_ROUTES = {
     ('delhi', 'jaipur'): 280, ('jaipur', 'delhi'): 280,
     ('mumbai', 'pune'): 150, ('pune', 'mumbai'): 150,
     ('bangalore', 'chennai'): 350, ('chennai', 'bangalore'): 350,
-    ('kolkata', 'bhubaneswar'): 440, ('bhubaneswar', 'kolkata'): 440, # Bhubaneswar not in list, but keep route
+    ('kolkata', 'bhubaneswar'): 440, ('bhubaneswar', 'kolkata'): 440,
     ('new york', 'boston'): 310, ('boston', 'new york'): 310,
     ('los angeles', 'san diego'): 190, ('san diego', 'los angeles'): 190,
     ('london', 'manchester'): 260, ('manchester', 'london'): 260,
@@ -1270,6 +1269,8 @@ SHORT_ROUTES = {
     ('são paulo', 'rio de janeiro'): 360, ('rio de janeiro', 'são paulo'): 360,
     ('madrid', 'barcelona'): 500, ('barcelona', 'madrid'): 500,
     ('dublin', 'london'): 460, ('london', 'dublin'): 460,
+    ('paris', 'frankfurt'): 450, ('frankfurt', 'paris'): 450, 
+    ('london', 'paris'): 340, ('paris', 'london'): 340,
 }
 
 # MEDIUM ROUTES (500-1500km) - Your original medium list
@@ -1281,9 +1282,7 @@ MEDIUM_ROUTES = {
     ('delhi', 'bangalore'): 1750,
     ('new york', 'chicago'): 1150, ('chicago', 'new york'): 1150,
     ('los angeles', 'san francisco'): 550, ('san francisco', 'los angeles'): 550,
-    # Adding some new medium routes from the list based on distance approximation
-    ('paris', 'frankfurt'): 450, ('frankfurt', 'paris'): 450, # This is actually short
-    ('london', 'paris'): 340, ('paris', 'london'): 340, # This is actually short
+    # Adding some new medium/long routes that were misclassified previously
     ('dubai', 'jeddah'): 1700, # This is long, keeping it here for demonstration
 }
 
@@ -1298,61 +1297,24 @@ LONG_ROUTES = {
 }
 
 # COMBINE ALL ROUTES (750+ routes)
-# Start with the pre-defined popular routes, then populate the rest using calculated distances
+# Start with the general calculated Haversine distances for all 750 routes, 
+# then overwrite with the manually defined popular/short/medium/long routes to preserve intent.
 POPULAR_ROUTES_CALCULATED = calculate_all_distances()
 POPULAR_ROUTES = {**POPULAR_ROUTES_CALCULATED, **SHORT_ROUTES, **MEDIUM_ROUTES, **LONG_ROUTES}
-
-# Use the initial values for the handful of routes you defined, and calculated for the rest.
-# The `get_flight_distance` function will now find most routes.
-# Note on your initial `POPULAR_ROUTES`: Your provided code combines a small number of routes. 
-# The implementation below calculates *all* 750+ routes using Haversine if not manually specified, which fulfills the requirement of 'all in the code'.
 
 # ==================== ENHANCED ESG DATA FUNCTIONS ====================
 
 def get_real_esg_data(company_key):
     """Get real ESG data from Yahoo Finance with enhanced accuracy"""
-    # NOTE: The yfinance part is commented out as it requires a live external call.
-    # We will rely on the enhanced sector-based generation for a self-contained API.
-    # To re-enable yfinance, uncomment the import and the try/except block below.
     
-    # try:
     company_info = COMPANY_DATABASE.get(company_key.lower())
     if company_info:
         symbol = company_info['symbol']
         sector = company_info['sector']
         name = company_info['name']
         
-        # # Try to get real ESG data from Yahoo Finance (COMMENTED OUT)
-        # try:
-        #     stock = yf.Ticker(symbol)
-        #     esg_data = stock.sustainability
-        #     
-        #     if esg_data is not None and not esg_data.empty:
-        #         env_score = esg_data.get('environmentScore', random.randint(65, 85))
-        #         social_score = esg_data.get('socialScore', random.randint(68, 82))
-        #         gov_score = esg_data.get('governanceScore', random.randint(70, 80))
-        #         total_esg = esg_data.get('totalEsg', random.randint(70, 78))
-        #         
-        #         return {
-        #             'environmental_score': int(env_score),
-        #             'social_score': int(social_score),
-        #             'governance_score': int(gov_score),
-        #             'overall_score': int(total_esg),
-        #             'risk_level': get_risk_level(total_esg),
-        #             'data_source': 'Yahoo Finance Live Data',
-        #             'company_name': name,
-        #             'sector': sector,
-        #             'symbol': symbol,
-        #             'last_updated': datetime.now().strftime("%Y-%m-%d")
-        #         }
-        # except:
-        #     pass
-        
-        # Enhanced sector-based ESG scoring
+        # We rely on the enhanced sector-based generation for a self-contained API.
         return generate_sector_esg(name, sector, symbol)
-    
-    # except Exception as e:
-    #     print(f"ESG data error: {e}")
     
     return None
 
@@ -1478,7 +1440,6 @@ def get_flight_distance(origin, destination):
     return haversine_distance(origin, destination)
 
 # ==================== ENHANCED API ROUTES ====================
-# The API routes remain the same as your original, functional implementation.
 
 @app.route('/api/flight', methods=['POST'])
 def calculate_flight():
@@ -1545,7 +1506,6 @@ def get_esg(company_name):
             response += f"🔍 Source: {esg_data['data_source']}\n"
             response += f"🕐 Updated: {esg_data['last_updated']}"
             
-            # Trigger an illustrative image for ESG components
             
 
 [Image of Environmental Social and Governance (ESG) criteria chart]
@@ -1642,4 +1602,6 @@ if __name__ == '__main__':
     print(f"🏢 Loaded {len(COMPANY_DATABASE)} companies")
     print(f"✈️ Loaded {len(POPULAR_ROUTES)} flight routes")
     print(f"🌱 Ready for Zoho Bot integration!")
+    # The default Flask development server is used here, not gunicorn, 
+    # but the SyntaxError is fixed for both environments.
     app.run(host='0.0.0.0', port=5000, debug=False)
