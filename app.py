@@ -359,3 +359,9 @@ def haversine_distance(origin, destination):
             destination_lower = destination.lower()
             coord1 = CITY_COORDINATES.get(origin_lower) or next((v for k, v in CITY_COORDINATES.items() if origin_lower in k), None)
             coord2 = CITY_COORDINATES.get(destination_lower) or next((v for k, v in CITY_COORDINATES.items()
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    print(f"🚀 Starting ESG Flight API on port {port}...")
+    print(f"🏢 Loaded {len(COMPANY_DATABASE)} companies")
+    print(f"✈️ Loaded {len(POPULAR_ROUTES)} flight routes")
+    app.run(host='0.0.0.0', port=port, debug=False)
